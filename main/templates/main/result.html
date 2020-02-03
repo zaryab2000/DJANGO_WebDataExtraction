@@ -1,0 +1,166 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+
+    <title>WORDS & FREQUENCY CALCULATOR</title>
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="#">WORDS & FREQUENCY</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+               <a class="nav-item nav-link" href="{% url 'freq' %}">WordCounter</a>
+              <a class="nav-item nav-link" href="{% url 'result' %}">Result Page</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      <div class="content-section2">
+      <div class="media">
+        
+        <div class="media-body">
+          
+            <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100 ver1 m-b-110">
+          <div class="table100-head">
+            <h1>RESULT PAGE</h1>
+              {% for data in datas %}
+
+                    <article class="media content-section">
+                      <div class="media-body">
+                        <strong><h4>URL<br><a class="mr-2" href="{{ data.url }}">{{ data.url }}</a></h4></strong>
+                        <br>
+                          
+                        <h4>Words with Their Frequency</h4>
+                        <div class="article-metadata">
+                              <h4>{{ data.words }}</h4>
+                          </div>
+                      </div>
+                    </article>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+
+
+<footer class="page-footer font-small blue pt-4">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase" align="text-center">WORD AND FREQUENCY CALCULATOR</h5>
+        <p>This Site LET'S YOU KNOW THE TRENDING WORDS FROM ANY WEB PAGE</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Developer</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://github.com/zaryab2000"><strong>Zaryab Afser</strong></a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-md-3 mb-md-0 mb-3">
+
+  
+        
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://www.atg.world/"> AGT WORLD</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

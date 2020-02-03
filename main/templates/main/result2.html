@@ -1,0 +1,106 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+
+    <title>WORDS & FREQUENCY CALCULATOR</title>
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'freq' %}">WORDS & FREQUENCY</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+               <a class="nav-item nav-link" href="{% url 'freq' %}">WordCounter</a>
+              <a class="nav-item nav-link" href="{% url 'result' %}">Result Page</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      <div class="content-section2">
+      <div class="media">
+        
+        <div class="media-body">
+          
+            <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100 ver1 m-b-110">
+          <div class="table100-head">
+            <h1>RESULT PAGE</h1>
+              {% for data in datas %}
+
+                    <article class="media content-section">
+                      <div class="media-body">
+                        <strong><h3>URL<br><a class="mr-2" href="{{ data.url }}">{{ data.url }}</a></h3></strong>
+                        <br>
+                          
+                        <h3>Words with Their Frequency</h3>
+                        <div class="article-metadata">
+                              <h4>{{ data.words }}</h4>
+                          </div>
+                      </div>
+                    </article>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
